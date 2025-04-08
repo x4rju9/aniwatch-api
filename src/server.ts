@@ -58,5 +58,11 @@ app.notFound(notFoundHandler);
 app.onError(errorHandler);
 
 // NOTE: this env is "required" for vercel deployments
+serve({
+  fetch: app.fetch,
+  port: Number(process.env.PORT) || 4000,
+});
+
+console.log(`🚀 Server is running on port ${process.env.PORT || 4000}`);
 
 export default app;
