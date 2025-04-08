@@ -59,10 +59,12 @@ app.onError(errorHandler);
 
 // NOTE: this env is "required" for vercel deployments
 serve({
-  fetch: app.fetch,
-  port: Number(process.env.PORT) || 4000,
-});
-
-console.log(`🚀 Server is running on port ${process.env.PORT || 4000}`);
+    port: PORT,
+    fetch: app.fetch,
+  }).addListener("listening", () =>
+    console.info(
+      "\x1b[1;36m" + `aniwatch-api at http://localhost:${PORT}` + "\x1b[0m"
+    )
+  );
 
 export default app;
