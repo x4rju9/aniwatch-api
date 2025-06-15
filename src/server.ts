@@ -76,7 +76,7 @@ app.onError(errorHandler);
     }
 
     const server = serve({
-        port: env.ANIWATCH_API_PORT,
+        port: 8055,
         fetch: app.fetch,
     }).addListener("listening", () =>
         log.info(
